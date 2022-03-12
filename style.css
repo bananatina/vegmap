@@ -1,0 +1,183 @@
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  font-family: 微軟正黑體, Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+header,
+footer {
+  background-color: #3c6e71;
+  text-align: center;
+  color: #fff;
+  padding: 2em;
+}
+h1 {
+  display: block;
+  width: 100%;
+  max-width: 15ch;
+  margin: 1vw auto;
+  padding: 0;
+}
+h3 {
+  margin: 0 auto;
+  color: #3c6e71;
+  font-weight: 700;
+}
+header p {
+  font-size: smaller;
+}
+a {
+  text-decoration: none;
+  margin: 1em;
+  cursor: pointer;
+}
+nav a {
+  color: #fff;
+}
+h1 a {
+  margin: 0;
+}
+
+main {
+  width: 100%;
+  max-width: 80vw;
+  margin: 0 auto;
+}
+#map {
+  width: 100%;
+  max-width: 50ch;
+  margin: 0 auto;
+  padding-bottom: 3em;
+}
+
+#map path {
+  fill: #70ae6e;
+  stroke: #fff;
+  stroke-width: 4px;
+  transition: fill 0.5s;
+}
+#map path:hover {
+  fill: #483c46;
+}
+#info {
+  display: none;
+  border: solid 3px #3c6e71;
+  /* border-radius: 15px; */
+  max-width: 40ch;
+  padding: 2em;
+  background-color: rgba(255, 255, 255, 0.5);
+  position: absolute;
+  top: 40%;
+  right: 50%;
+}
+ul {
+  margin-left: 0;
+}
+li {
+  list-style: none;
+  margin: 0.5rem;
+}
+
+.tab {
+  background-color: #3c6e71;
+  color: #fff;
+  padding: 2rem;
+  border: none;
+}
+#filterbox {
+  border: solid 2px #3c6e71;
+  transition: ease-in-out 0.5s;
+}
+.hidden {
+  display: none;
+}
+.open {
+  display: block;
+}
+
+.toggle {
+  position: absolute;
+  right: 30%;
+}
+
+#toggleFilter input[type="checkbox"] {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  z-index: -2;
+  border: none;
+  outline: none;
+}
+#toggleFilter label {
+  width: 60px;
+  height: 24px;
+  border-radius: 50px;
+  background-color: #fff;
+  position: absolute;
+  border: solid 1px #3c6e71;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  transition: fill 0.2s ease-in-out;
+}
+#toggleFilter label:after {
+  content: "";
+  width: 20px;
+  height: 20px;
+  background: #fff;
+  position: absolute;
+  top: 0px;
+  left: 1px;
+  border: solid 1.5px #3c6e71;
+  border-radius: 50%;
+  transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+#toggleFilter input[type="checkbox"]:checked + label::after {
+  left: 34px;
+}
+#toggleFilter input[type="checkbox"]:checked + label {
+  background-color: #70ae6e;
+}
+
+#mapContainer {
+  width: 100%;
+  /* temporay height */
+  height: 50vh;
+  background-color: #483c46;
+}
+
+#restaurantList img {
+  width: 10ch;
+  /* temporay height */
+  height: 10ch;
+  background-color: #483c46;
+}
+
+#restaurantList li:nth-child(odd) {
+  display: flex;
+  margin: 0;
+  background-color: #3c6e71;
+  color: #fff;
+}
+#restaurantList li:nth-child(even) {
+  display: flex;
+  margin: 0;
+  background-color: #fff;
+  color: black;
+  border: solid 2px #3c6e71;
+}
+
+.restaurantElem {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.restaurantElem h5,
+.restaurantElem p,
+.restaurantElem address {
+  display: inline-block;
+}
