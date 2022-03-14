@@ -6,7 +6,7 @@ from index_details import database, test
 
 @app.route('/')
 def index():
-    to_send=test()
+    to_send=database()
     return render_template("index.html", to_send=to_send)
 
 # 定義路由url地址
