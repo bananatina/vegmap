@@ -75,7 +75,7 @@ main {
   right: 50%;
 }
 ul {
-  margin-left: 0;
+  padding-left: 0;
 }
 li {
   list-style: none;
@@ -180,4 +180,9 @@ li {
 .restaurantElem p,
 .restaurantElem address {
   display: inline-block;
+}
+.imgBox{
+  height: inherit;
+  width: 100%;
+  max-width: 30ch;
 }

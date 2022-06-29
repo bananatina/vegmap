@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Taiwan Vegetarian Map</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <main>
+        <button class="tab" id="mode">Mode</button>
+        <button class="tab" id="filter">Filter</button>
+        <div id="filterbox" class="hidden">
+            <fieldset>
+                <legend>Diet</legend>
+                <label for="vegetarian">Vegetarian</label>
+                <input type="checkbox" name="diet" id="vegetarian">
+                <label for="ovoLacto">Ovo-lacto</label>
+                <input type="checkbox" name="diet" id="ovoLacto">
+                <label for="vegan">Vegan</label>
+                <input type="checkbox" name="diet" id="vegan">
+                <label for="buddhistVegan">Buddhist Vegan</label>
+                <input type="checkbox" name="diet" id="buddhistVegan">
+            </fieldset>
+            <fieldset id="toggleFilter">
+                <legend>Filter</legend>
+                <p>Five star only</p>
+                <div class="toggle">
+                    <input type="checkbox" name="filter" id="fiveStarToggle">
+                    <label for="fiveStarToggle"></label>
+                </div>
+                <p>Open today</p>
+                <div class="toggle">
+                    <input type="checkbox" name="filter" id="openToggle">
+                    <label for="openToggle"></label>
+                </div>
+            </fieldset>
+            <input type="submit">
+        </div>
+        <div id="mapContainer"></div>
+        <section id="restaurantList">
+            <ul>
+                <li>
+                    <div class="imgBox">
+                        
+                    </div>
+                    <div class="restaurantElem">
+                        <h4>Restaurant Name</h4>
+                        <div class="restaurantInfo">
+                            <h5>Diet Type</h5>
+                            <p>Vegan</p>
+                        </div>
+                        <div class="restaurantInfo">
+                            <h5>Menu Type</h5>
+                            <p>Taiwanese</p>
+                        </div>
+                        <div class="restaurantInfo">
+                            <h5>Contact</h5>
+                            <address>+886 925-123-123</address>
+                        </div>
+                        <div class="restaurantInfo">
+                            <h5>Address</h5>
+                            <p>
+                            <address>123 Muzha Rd. WenShan Dist. Taipei</address>
+                            </p>
+                        </div>
+                        <div class="restaurantInfo">
+                            <h5>Transportation</h5>
+                            <p>Bus / MRT</p>
+                        </div>
+                        <div class="restaurantInfo">
+                            <h5>Business Hours</h5>
+                            <ul><li>Mon 12:00 - 21:00<li><ul>
+                        </div>
+                        <div class="restaurantInfo">
+                            <h5>Average Cost</h5>
+                            <p>$ 000 NTD</p>
+                        </div>
+                        <div class="restaurantInfo">
+                            <h5>Website</h5>
+                            <p>www.sample.com</p>
+                        </div>
+                    </div>
+                </li>
+                
+            </ul>
+        </section>
+        <footer>
+            <p>Tina & Ting Copyrights information</p>
+        </footer>
+    </main>
+    <script src="javascript.js"></script>
+  </body>
+</html>
