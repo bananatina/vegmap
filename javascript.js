@@ -1,5 +1,6 @@
 var path = window.location.pathname;
 var page = path.split("/").pop();
+const width  = window.innerWidth
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 const map = urlParams.get('map')
@@ -15,6 +16,7 @@ const maplist = document.querySelectorAll("#map a");
 for(let i of maplist){
     i.addEventListener("mouseleave",()=>{
         info.style.display="none";
+        homeDescription.style.display="block";
     })
 }
 for(let i of maplist){
@@ -22,6 +24,7 @@ for(let i of maplist){
     console.log(i.id)
     mapId.addEventListener("mouseover",()=>{
         showinfo(i.id,);
+        homeDescription.style.display="none";
     })
 }
 filter.addEventListener("click",()=>{filterbox.classList.toggle("open")})
@@ -46,6 +49,17 @@ function createRestaurantElem(){
     }
     newLi.appendChild(restaurantElemBody);
     list.appendChild(newLi);
+}
 
+// map size
+const gooMap = document.querySelector(".gmap_canvas iframe");
 
+gooMap.setAttribute("width", width*0.8);
+var mapSize = gooMap.getAttribute("width");
+if(width>=1000){
+    gooMap.setAttribute("height", mapSize*0.5);
+}else if(width<650){
+    gooMap.setAttribute("height", mapSize*1.5);
+}else{
+    gooMap.setAttribute("height", mapSize*0.8);
 }
