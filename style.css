@@ -20,7 +20,7 @@ footer {
   background-color: var(--primary);
   text-align: center;
   color: var(--white);
-  padding: 2em;
+  padding: 1.5em;
 }
 h1 {
   display: block;
@@ -33,6 +33,9 @@ h2{
   font-weight: 200;
   font-size: 3vw;
   color: var(--white);
+}
+#citymapMain h2{
+  color: var(--primary);
 }
 h3 {
   margin: 0 auto;
@@ -107,15 +110,10 @@ li {
   margin: 0.5rem;
 }
 
-.tab {
-  background-color: var(--primary);
-  color: #fff;
-  padding: 2rem;
-  border: none;
-}
 #filterbox {
   border: solid 2px var(--primary);
   transition: ease-in-out 0.5s;
+  padding: 1rem;
 }
 .hidden {
   display: none;
@@ -182,16 +180,15 @@ li {
   height: 10ch;
   background-color: var(--dark);
 }
-
-#restaurantList li:nth-child(odd) {
+#restaurantList li{
   display: flex;
   margin: 0;
+}
+#restaurantList li:nth-child(odd) {
   background-color: var(--primary);
   color: var(--white);
 }
 #restaurantList li:nth-child(even) {
-  display: flex;
-  margin: 0;
   background-color: var(--white);
   color: black;
   border: solid 2px var(--primary);
@@ -200,16 +197,33 @@ li {
 .restaurantElem {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  padding: 2rem 1rem;
 }
 .restaurantElem h5,
 .restaurantElem p,
 .restaurantElem address {
-  display: inline-block;
+  /* display: inline-block; */
+  margin: 1rem 0 .5rem 0;
+}
+.restaurantInfo {
+  display: block;
+  padding: 0 2rem;
+}
+.restaurantName{
+  grid-column: span 2;
+  justify-self: start;
+}
+.restaurantName:nth-of-type(odd){
+  color: var(--white);
 }
 .imgBox{
   height: inherit;
   width: 100%;
   max-width: 30ch;
+}
+.flexbox{
+  display: flex;
+  align-items: center;
 }
 
 /* embeded map */
@@ -223,6 +237,17 @@ li {
   overflow:hidden;background:none!important;height:100%;
   width:100%;
 }
+.btn,.tab{
+  padding: .8rem 3rem;
+  background-color: var(--primary);
+  color: var(--white);
+  border: none;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+.btn:hover,.tab:hover{
+  background-color: var(--dark);
+}
 
 /* media queries */
 @media only screen and (max-height: 850px){
@@ -235,11 +260,23 @@ li {
   h1{
     margin: unset;
   }
+  header p{
+    margin: 0 auto .5rem 1rem;
+  }
 
 }
 
 @media only screen and (max-width: 600px){
   header{
     flex-direction: column;
+  }
+  header p{
+    margin: 0 auto;
+  }
+  .restaurantElem{
+    grid-template-columns: 1fr;
+  }
+  #restaurantList li{
+    display: block;
   }
 }
