@@ -5,99 +5,87 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Taiwan Vegetarian Map</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
+    <link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
   </head>
   <body>
-    <main>
-        <button class="tab" id="mode">Mode</button>
-        <button class="tab" id="filter">Filter</button>
-        <div id="filterbox" class="hidden">
-            <fieldset>
-                <legend>Diet</legend>
-                <label for="vegetarian">Vegetarian</label>
-                <input type="checkbox" name="diet" id="vegetarian">
-                <label for="ovoLacto">Ovo-lacto</label>
-                <input type="checkbox" name="diet" id="ovoLacto">
-                <label for="vegan">Vegan</label>
-                <input type="checkbox" name="diet" id="vegan">
-                <label for="buddhistVegan">Buddhist Vegan</label>
-                <input type="checkbox" name="diet" id="buddhistVegan">
-            </fieldset>
-            <fieldset id="toggleFilter">
-                <legend>Filter</legend>
-                <p>Five star only</p>
-                <div class="toggle">
-                    <input type="checkbox" name="filter" id="fiveStarToggle">
-                    <label for="fiveStarToggle"></label>
-                </div>
-                <p>Open today</p>
-                <div class="toggle">
-                    <input type="checkbox" name="filter" id="openToggle">
-                    <label for="openToggle"></label>
-                </div>
-            </fieldset>
-            <input type="submit">
-        </div>
-        <div id="mapContainer">
-            <div class="mapouter">
-                <div class="gmap_canvas">
-                    <iframe width="2000" height="600" id="gmap_canvas" src="https://maps.google.com/maps?q=%E6%9E%9C%E7%84%B6%E5%8C%AF%20%E5%8F%B0%E5%8C%97%E6%98%8E%E6%9B%9C%E5%BA%97&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://putlocker-is.org"></a>
-                    <br>
-                    <a href="https://www.embedgooglemap.net">embed google maps website</a>
-                    
-                </div>
+    <header>
+      <h1>
+        <a href="index.html"
+          ><img
+            src="images/twn_vege_map.svg"
+            alt="Taiwan Vegetarian Map"
+            id="logo"
+        /></a>
+      </h1>
+      <p>Hunt you the best vegetarian restaurants.</p>
+      <nav>
+        <a href="about.html">About</a>
+        <a href="explore.html">Explore</a>
+        <a href="contact.html">Contact</a>
+        <a href="blog.html">Blog</a>
+      </nav>
+    </header>
+    <main id="citymapMain">
+      <button class="tab" id="mode">Mode</button>
+      <button class="tab" id="filter">Filter</button>
+      <div id="filterbox" class="hidden">
+        <fieldset>
+          <legend>Diet</legend>
+          <input type="checkbox" name="diet" id="vegetarian" />
+          <label for="vegetarian">Vegetarian</label>
+          <input type="checkbox" name="diet" id="vegan" />
+          <label for="vegan">Vegan</label>
+          <input type="checkbox" name="diet" id="buddhistVegan" />
+          <label for="buddhistVegan">Buddhist Vegan</label>
+        </fieldset>
+        <fieldset id="toggleFilter">
+          <legend>Filter</legend>
+          <div class="flexbox">
+            <p>Five star only</p>
+            <div class="toggle">
+              <input type="checkbox" name="filter" id="fiveStarToggle" />
+              <label for="fiveStarToggle"></label>
             </div>
+          </div>
+          <div class="flexbox">
+            <p>Open today</p>
+            <div class="toggle">
+              <input type="checkbox" name="filter" id="openToggle" />
+              <label for="openToggle"></label>
+            </div>
+          </div>
+        </fieldset>
+        <input type="submit" value="Submit" class="btn" />
+      </div>
+      <div id="mapContainer" class="hidden">
+        <div class="mapouter">
+          <div class="gmap_canvas">
+            <iframe
+              width="2000"
+              height="600"
+              id="gmap_canvas"
+              src="https://maps.google.com/maps?q=%E6%9E%9C%E7%84%B6%E5%8C%AF%20%E5%8F%B0%E5%8C%97%E6%98%8E%E6%9B%9C%E5%BA%97&t=&z=13&ie=UTF8&iwloc=&output=embed"
+              frameborder="0"
+              scrolling="no"
+              marginheight="0"
+              marginwidth="0"
+            ></iframe
+            ><a href="https://putlocker-is.org"></a>
+            <br />
+            <a href="https://www.embedgooglemap.net"
+              >embed google maps website</a
+            >
+          </div>
         </div>
-        <section id="restaurantList">
-            <ul>
-                <li>
-                    <div class="imgBox">
-                        
-                    </div>
-                    <div class="restaurantElem">
-                        <h4>Restaurant Name</h4>
-                        <div class="restaurantInfo">
-                            <h5>Diet Type</h5>
-                            <p>Vegan</p>
-                        </div>
-                        <div class="restaurantInfo">
-                            <h5>Menu Type</h5>
-                            <p>Taiwanese</p>
-                        </div>
-                        <div class="restaurantInfo">
-                            <h5>Contact</h5>
-                            <address>+886 925-123-123</address>
-                        </div>
-                        <div class="restaurantInfo">
-                            <h5>Address</h5>
-                            <p>
-                            <address>123 Muzha Rd. WenShan Dist. Taipei</address>
-                            </p>
-                        </div>
-                        <div class="restaurantInfo">
-                            <h5>Transportation</h5>
-                            <p>Bus / MRT</p>
-                        </div>
-                        <div class="restaurantInfo">
-                            <h5>Business Hours</h5>
-                            <ul><li>Mon 12:00 - 21:00<li><ul>
-                        </div>
-                        <div class="restaurantInfo">
-                            <h5>Average Cost</h5>
-                            <p>$ 000 NTD</p>
-                        </div>
-                        <div class="restaurantInfo">
-                            <h5>Website</h5>
-                            <p>www.sample.com</p>
-                        </div>
-                    </div>
-                </li>
-                
-            </ul>
-        </section>
-        <footer>
-            <p>Tina & Ting Copyrights information</p>
-        </footer>
+      </div>
+      <h2>PlaceHolder</h2>
+      <section id="restaurantList">
+        <ul></ul>
+      </section>
+      <footer>
+        <p>Tina & Ting Copyrights information</p>
+      </footer>
     </main>
     <script src="javascript.js"></script>
   </body>
