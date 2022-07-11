@@ -10,6 +10,16 @@ function showinfo(name){
     info.style.display="block";
     document.querySelector("#info h3").innerHTML=name;
 }
+function turnLink(){
+    let elems = document.querySelectorAll(".restaurantInfo:last-of-type p");
+    elems.forEach((e)=>{
+        let newA = document.createElement('a');
+        newA.setAttribute("href", "http://"+e.innerHTML);
+        newA.setAttribute("target", "_blank");
+        newA.innerHTML=e.innerHTML;
+        e.parentNode.replaceChild(newA, e);
+    })
+}
 
 //infobox disapear
 const maplist = document.querySelectorAll("#map a");
@@ -104,6 +114,7 @@ if(page == "citymap.html"){
     }
     
     dietFilter();
+    turnLink();
 }
 
 

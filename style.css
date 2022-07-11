@@ -14,13 +14,18 @@ body {
   margin: 0;
   padding: 0;
 }
-
+#about_body{
+  background-image: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.6)),url(images/about_bg.jpg);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 header,
 footer {
   background-color: var(--primary);
   text-align: center;
   color: var(--white);
-  padding: 1.5em;
+  padding: .5em;
 }
 h1 {
   display: block;
@@ -31,15 +36,17 @@ h1 {
 }
 h2{
   font-weight: 200;
-  font-size: 3vw;
-  color: var(--white);
+  font-size: clamp(1.5rem, 3vw, 4rem); ;
 }
-#citymapMain h2{
+#citymapMain h2, #info h3{
   color: var(--primary);
+}
+#homeDescription h2{
+  color: var(--white);
 }
 h3 {
   margin: 0 auto;
-  color: var(--primary);
+  /* color: var(--primary); */
   font-weight: 700;
 }
 header p {
@@ -49,6 +56,7 @@ a {
   text-decoration: none;
   margin: 1em;
   cursor: pointer;
+  color: unset;
 }
 nav a {
   color: var(--white);
@@ -59,6 +67,8 @@ h1 a {
 
 main {
   width: 100%;
+}
+.narrowMain{
   max-width: 80vw;
   margin: 0 auto;
 }
@@ -79,19 +89,29 @@ main {
   fill: var(--dark);
 }
 #home-main{
-  display: flex;
   flex-direction: row-reverse;
   max-width: none;
-  justify-content: space-around;
+}
+#about_main section:nth-of-type(odd){
+  color: var(--white);
+}
+#about_main section:nth-of-type(even){
+  background-color: var(--white);
+  color: var(--dark) !important;
+}
+#about_main .narrowMain{
+  padding: 1rem 4rem;
+}
+#about_main section{
+  padding: 2rem 0;
 }
 .container_half{
   width: 100%;
   max-width: 50vw;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: center !important;
   background-color: var(--dark);
   padding: 2rem;
+  align-self: normal;
 }
 
 #info {
@@ -193,7 +213,7 @@ li {
   color: black;
   border: solid 2px var(--primary);
 }
-
+/* .restaurantName */
 .restaurantElem {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -214,19 +234,26 @@ li {
   grid-column: span 2;
   justify-self: start;
 }
-.restaurantName:nth-of-type(odd){
-  color: var(--white);
-}
+
 .imgBox{
   height: inherit;
   width: 100%;
-  max-width: 30ch;
+  /* max-width: 30ch; */
+  max-width: clamp(20rem, 5vw, 30rem);;
   background-size: cover;
   background-repeat: no-repeat;
+}
+.imgBox img{
+  width: 100%;
+  height: auto;
+}
+#about_main .imgBox{
+  margin: 1rem;
 }
 .flexbox{
   display: flex;
   align-items: center;
+  /* justify-content: space-around; */
 }
 
 
@@ -267,11 +294,15 @@ li {
   header p{
     margin: 0 auto .5rem 1rem;
   }
+  #about_main .narrowMain{
+    padding: 1rem;
+  }
+
 
 }
 
 @media only screen and (max-width: 600px){
-  header,#restaurantList li{
+  header,#restaurantList li, .flexbox{
     flex-direction: column;
   }
   header p{
@@ -287,7 +318,7 @@ li {
     max-width: none;
   }
   .restaurantElem{
-    grid-template-columns: 1fr;
+    display: block;
   }
   /* #restaurantList li{
     display: block;
@@ -296,4 +327,5 @@ li {
     height: 30ch;
     max-width: none;
   }
+  
 }
