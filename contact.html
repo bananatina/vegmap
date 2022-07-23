@@ -1,36 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Taiwan Vegetarian Map</title>
-</head>
-<link rel="stylesheet" href="style.css">
-<style>
-    .announce{
+    <link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      .announce {
         font-size: 10vw;
-    }
-</style>
-<body>
+      }
+    </style>
+  </head>
+  <body>
     <header>
-        <h1><a href="index.html"><img src="twn_vege_map.svg" alt="Taiwan Vegetarian Map" id="logo"></a></h1>
-        <p>Hunt you the best vegetarian restaurants.</p>
-        <nav>
-            <a href="about.html">About</a>
-            <a href="explore.html">Explore</a>
-            <a href="contact.html">Contact</a>
-        </nav>
+      <h1>
+        <a href="index.html"
+          ><img
+            src="images/twn_vege_map.svg"
+            alt="Taiwan Vegetarian Map"
+            id="logo"
+        /></a>
+      </h1>
+      <p>Hunt you the best vegetarian restaurants.</p>
+      <nav>
+        <a href="about.html">About</a>
+        <a href="explore.html">Explore</a>
+        <a href="contact.html">Contact</a>
+        <a href="blog.html">Blog</a>
+      </nav>
     </header>
     <main>
-        <h1 class="announce">ただいま工事中</h1>
-        <form action="formhandler.php" method="post">
-            <input type="text">
-    
-        </form>
+      <h2>Contact us</h2>
+      <form action="formhandler.php" method="post">
+        <label for="requestType">Purpose of contact</label>
+        <select name="requestType" id="requestType">
+          <option value="">error report</option>
+          <option value="">cooperation request</option>
+          <option value="">add a new restaurant</option>
+          <option value="other">other</option>
+        </select>
+        <label for="name">Your name</label>
+        <input type="text" name="name" id="name" />
+        <label for="email">Your email</label>
+        <input type="email" name="email" id="email" />
+        <label for="detail"></label>
+        <textarea name="detail" id="detail" cols="30" rows="10"></textarea>
+        <input type="submit" value="Submit" />
+      </form>
     </main>
     <footer>
-        <p>Tina & Ting Copyrights information</p>
+      <p>Tina & Ting Copyrights information</p>
     </footer>
-</body>
+  </body>
 </html>
