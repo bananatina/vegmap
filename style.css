@@ -103,7 +103,7 @@ textarea{
   transition: fill 0.5s;
 }
 #map path:hover {
-  fill: var(--dark);
+  fill: var(--dark) !important;
 }
 #home-main{
   flex-direction: row-reverse;

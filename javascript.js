@@ -6,6 +6,12 @@ const urlParams = new URLSearchParams(queryString);
 const map = urlParams.get('map')
 const restaurantList = document.getElementById("restaurantList");
 const damiData = [['SU 蔬食料理', 'Su Vegetarian Cuisine', 'Vegan/Vegetarian', 'French', 'permanently closed', 'ZH、EN', '( +886-2-2894-6428 )', 'No. 228, Guangming Rd., Beitou Dist., Taipei City', 'MRT Xinbeitou Station → Walk 4 mins', '11:00~21:00', 'around NT$230', 'www.su-veges.com', '25.135874,121.505804'],['毫光回田蔬苑', 'Hui Tien Vegetarianism', 'Vegan/Vegetarian', 'Chinese', '', 'ZH、EN', '( +886-2-2883-2168 )', 'No. 357, Zhongzheng Rd., Shilin Dist, Taipei City', 'MRT Shilin Station → Walk 7 mins', '11:00~14:30 、17:00~21:00', 'around NT$150', 'www.hawkuang.com', '25.094301,121.522190'],[ 'Herban Kitchen & Bar二本餐廳', 'Herban Kitchen & Bar', 'Vegan and Vegetarian  special orders allowed', 'Exotic', '', 'ZH、EN', '(  +886-2-8773-7033', "No. 27, Lane 101, Zhongxiao E. Rd., Section 4, Da'an Dist., Taipei City", 'MRT Zhongxiao Dunhua Station → Walk 3 mins', '12:00~23:00', 'around NT$280', 'tripmoment.com/Trip/18285', '25.042963,121.548166'],[ '家禾素食坊', 'Jia He Vegetarian( 家禾)', 'Vegan / Buddhist Vegan / Vegetarian', 'Chinese', '', 'EN', '+886-2-2626-5730', 'No. 254, Zhongzheng Rd., Tamsui Dist., New Taipei City', '', '', '', '', '25.171267,121.438691'],['安巒山莊休閒農場', 'An-Luan Vacation Villa (安巒)', 'Vegan / Buddhist Vegetarian / Vegetarian', 'Chinese', '', 'EN', ' +886-8-781-1345 ', 'No. 134-1, Yongkang Rd., Wanluan Township, Pingtung County', '', '', '', '', '22.566568,120.562352'],['楊師姊素食館', 'Yang Shi Jie Vegetarian Restaurant(楊師姊)', 'Vegan / Buddhist Vegetarian / Vegetarian', 'Chinese', '', 'EN', ' +886-836-23252 、 +886-953-360615', 'No. 159, Fuxing Village, Nangan Township, Lienchiang County', '', '', '', '', '26.164559,119.958154']]
+const damiDataStat = [156,35,25,126,79,85,3,10,15,36,45,11,2,49,33,21,16,75,18,19,32,21]
+
+Array.prototype.random = function () {
+    return this[Math.floor((Math.random()*this.length))];
+  }
+
 function showinfo(name){
     info.style.display="block";
     document.querySelector("#info h3").innerHTML=name;
@@ -86,6 +92,33 @@ function dietFilter(){
             }
         })
     })
+}
+
+if(page == "index.html"){
+    let mapBlock = document.querySelectorAll("#map path");
+    for(let i =0; i <= mapBlock.length; i++){
+        // console.log(i,damiDataStat[i])
+        if(damiDataStat[i]>100){
+            mapBlock[i].style.fill="#659d63";
+        }else if(damiDataStat[i]>80){
+            mapBlock[i].style.fill="#70ae6e";
+        }else if(damiDataStat[i]>60){
+            mapBlock[i].style.fill="#8dbe8b";
+        }else if(damiDataStat[i]>40){
+            mapBlock[i].style.fill="#a9cea8";
+        }else if(damiDataStat[i]>20){
+            mapBlock[i].style.fill="#c6dfc5";
+        }else if(damiDataStat[i]>0){
+            mapBlock[i].style.fill="#e2efe2";
+        }
+    }
+    let explore = document.querySelector("nav a:nth-of-type(2)");
+    // console.log(explore);
+    let citys = document.querySelectorAll("#map a");
+    
+    // let randomLink = citys.random();
+    // console.log(randomLink);
+    // explore.setAttribute("href",randomLink)
 }
 
 if(page == "citymap.html"){
