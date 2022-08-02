@@ -26,14 +26,21 @@
         <a href="blog.html">Blog</a>
       </nav>
     </header>
-    <main id="formMain">
+    <main id="formMain" class="narrowMain">
       <h2>Contact</h2>
       <div class="flexbox">
-        <p>Thank you for your feedback</p>
+        <h3>Thank you for your feedback!</h3>
+        <p>Redirect to home page in seconds...</p>
       </div>
     </main>
     <footer>
       <p>Tina & Ting Copyrights information</p>
     </footer>
+    <script>
+      setTimeout(redirect, 3000);
+      function redirect() {
+        window.location.replace("index.html");
+      }
+    </script>
   </body>
 </html>

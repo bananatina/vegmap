@@ -89,6 +89,11 @@ textarea{
   max-width: 80vw;
   margin: 0 auto;
 }
+.center{
+  margin: 0 auto;
+  align-self: center;
+  justify-self: center;
+}
 #map {
   width: 100%;
   max-width: 50ch;
