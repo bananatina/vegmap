@@ -4,10 +4,13 @@ from flask import render_template
 from flask_sqlalchemy import SQLAlchemy
 app = Flask(__name__)
 
-basedir = os.path.abspath(os.path.dirname(__file__))
-
 # Configure參數設定
-app.config['SQLALCHEMY_DATABASE_URI'] = "mysql+pymysql://tinaroot:egk35sTjsf2@h127.0.0.1:3306/fromzerostoo"
+# 正式
+# app.config['SQLALCHEMY_DATABASE_URI'] = "mysql+pymysql://tinaroot:egk35sTjsf2@h127.0.0.1:3306/fromzerostoo"
+
+# local環境
+app.config['SQLALCHEMY_DATABASE_URI'] = "mysql+pymysql://root:asdf4321ASDF@h127.0.0.1:3306/vegmap_test"
+
 # 第二組參數要設定「SQLALCHEMY_TRACK_MODIFICATIONS」。這個設定如果設置為True後Flask-SQLAlchemy為追蹤各種改變的信號，這樣子會消耗額外的記憶體，官網上建議如果沒有特別需要，可設定為關閉裝態。因此，在這裡我們設定為False。
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS']=True
 # 傳到SQLAlchemy

@@ -13,7 +13,7 @@ app.config['ROOT_DIR'] = os.path.dirname(os.path.abspath(__file__))
 # 不使用裝飾器也可以實現路由對映。
 @app.route('/')
 def index():
-    get_all_restaurants = restaurant()
+    get_all_restaurants = restaurant(app)
     return render_template("index.html", to_send=get_all_restaurants)
 
 # 靜態檔案路徑指定

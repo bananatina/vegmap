@@ -1,6 +1,6 @@
 from model import restaurant
 
-def all_restaurants():
+def all_restaurants(app):
 
     # Fetching all rows from the table
     result = restaurant.query.order_by(restaurant.id).all()
