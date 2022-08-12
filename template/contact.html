@@ -5,8 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Taiwan Vegetarian Map</title>
-    <link href="../favicon.ico" rel="shortcut icon" type="image/x-icon" />
-    <link rel="stylesheet" href="../style.css" />
+    <link
+      href="{{ url_for('route_assets', filename='favicon.ico') }}"
+      rel="shortcut icon"
+      type="image/x-icon"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('route_static', filename='style.css') }}"
+    />
   </head>
   <body>
     <header>
@@ -280,6 +287,6 @@
     <footer>
       <p>Tina & Ting Copyrights information</p>
     </footer>
-    <script src="../formhandle.js"></script>
+    <script src="{{ url_for('route_static', filename='formhandle.js') }}"></script>
   </body>
 </html>
