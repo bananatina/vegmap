@@ -1,5 +1,3 @@
-from model import restaurant
-
 def all_restaurants(app):
 
     # Fetching all rows from the table
