@@ -1,6 +1,6 @@
 import os
 import os.path as pth
-from flask import Flask, render_template, request, url_for, redirect
+from flask import Flask, render_template, request, url_for, redirect,send_from_directory
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__, template_folder='template')
@@ -10,10 +10,10 @@ app.config['ROOT_DIR'] = os.path.dirname(os.path.abspath(__file__))
 
 # Configure參數設定
 # 正式
-# app.config['SQLALCHEMY_DATABASE_URI'] = "mysql+pymysql://tinaroot:egk35sTjsf2@h127.0.0.1:3306/fromzerostoo"
+# app.config['SQLALCHEMY_DATABASE_URI'] = "mysql://tinaroot:egk35sTjsf2@127.0.0.1:3306/fromzerostoo"
 
 # local環境
-app.config['SQLALCHEMY_DATABASE_URI'] = "mysql+pymysql://root:asdf4321ASDF@h127.0.0.1:3306/vegmap_test"
+app.config['SQLALCHEMY_DATABASE_URI'] = "mysql://root:asdf4321ASDF@127.0.0.1:3306/vegmap_test"
 
 # 第二組參數要設定「SQLALCHEMY_TRACK_MODIFICATIONS」。這個設定如果設置為True後Flask-SQLAlchemy為追蹤各種改變的信號，這樣子會消耗額外的記憶體，官網上建議如果沒有特別需要，可設定為關閉裝態。因此，在這裡我們設定為False。
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
@@ -55,14 +55,13 @@ class RestaurantPic(db.Model):
     pic8=db.Column(db.String(50), unique=True, nullable=False)
 
 
-
 # 定義路由url地址
 # endpoint：表示檢視函式名的字串形式。
 # 不使用裝飾器也可以實現路由對映。
 @app.route('/')
 def index():
-    get_all_restaurants = Restaurant()
-    return render_template("index.html", to_send=get_all_restaurants)
+    restaurants = Restaurant.query.all()
+    return render_template("test.html", restaurants=restaurants)
 
 # 靜態檔案路徑指定
 @app.route('/static/<path:filename>')
