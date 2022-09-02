@@ -2,6 +2,7 @@ import os
 import os.path as pth
 from flask import Flask, render_template, request, url_for, redirect,send_from_directory
 from flask_sqlalchemy import SQLAlchemy
+from all_restaurants import *
 
 app = Flask(__name__, template_folder='template')
 #root dir
@@ -38,6 +39,13 @@ class Restaurant(db.Model):
     website = db.Column(db.String(300), unique=False, nullable=False)
     coordinate = db.Column(db.String(300), unique=False, nullable=False)
 
+
+    # def __init__(self,id,restaurant_en,restaurant_cn,address):
+    #     self.id=id
+    #     self.restaurant_en=restaurant_en
+    #     self.restaurant_cn=restaurant_cn
+    #     self.address=address
+
     def __repr__(self):
         return f'<Restaurant {self.restaurant_en}>'
 
@@ -60,8 +68,12 @@ class RestaurantPic(db.Model):
 # 不使用裝飾器也可以實現路由對映。
 @app.route('/')
 def index():
-    restaurants = Restaurant.query.all()
-    return render_template("test.html", restaurants=restaurants)
+    # restaurants = Restaurant.query.order_by(Restaurant.address).all()
+    restaurant_addr=list()
+    for addr in db.session.query(Restaurant.address).all():
+        restaurant_addr.append(addr)
+    city_amount=city(restaurant_addr)
+    return render_template("test.html", restaurants=city_amount)
 
 # 靜態檔案路徑指定
 @app.route('/static/<path:filename>')

@@ -10,6 +10,7 @@ def all_restaurants(app):
 
 
 def city(results):
+    print (results)
     city_dic = dict()
     city_cost_dic = dict()
     city_detail = list()
