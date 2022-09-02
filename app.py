@@ -72,7 +72,7 @@ def index():
     restaurant_addr=list()
     for addr in db.session.query(Restaurant.address).all():
         restaurant_addr.append(addr)
-    city_amount=city(restaurant_addr)
+    city_amount=restaurant_city(restaurant_addr)
     return render_template("test.html", restaurants=city_amount)
 
 # 靜態檔案路徑指定
