@@ -73,7 +73,7 @@ def index():
     for addr in db.session.query(Restaurant.address).all():
         restaurant_addr.append(addr)
     city_amount=restaurant_city(restaurant_addr)
-    return render_template("test.html", restaurants=city_amount)
+    return render_template("index.html", restaurants=city_amount)
 
 # 靜態檔案路徑指定
 @app.route('/static/<path:filename>')
