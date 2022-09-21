@@ -98,22 +98,7 @@ let explore = document.querySelector("nav a:nth-of-type(2)");
 explore.setAttribute("href","citymap.html?map="+cities.random());
 
 if(page == "index.html"){
-    let mapBlock = document.querySelectorAll("#map path");
-    for(let i =0; i <= mapBlock.length; i++){
-        if(damiDataStat[i]>100){
-            mapBlock[i].style.fill="#659d63";
-        }else if(damiDataStat[i]>80){
-            mapBlock[i].style.fill="#70ae6e";
-        }else if(damiDataStat[i]>60){
-            mapBlock[i].style.fill="#8dbe8b";
-        }else if(damiDataStat[i]>40){
-            mapBlock[i].style.fill="#a9cea8";
-        }else if(damiDataStat[i]>20){
-            mapBlock[i].style.fill="#c6dfc5";
-        }else if(damiDataStat[i]>0){
-            mapBlock[i].style.fill="#e2efe2";
-        }
-    } 
+   
 }
 
 if(page == "citymap.html"){
