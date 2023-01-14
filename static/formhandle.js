@@ -1,9 +1,9 @@
-const inquery =  document.getElementById("requestType");
+const inquery = document.getElementById("requestType");
 const formNewShop = document.getElementById("formNewShop");
-inquery.addEventListener("change",()=>{
-    if(inquery.value==="newShop"){
+inquery.addEventListener("change", () => {
+    if (inquery.value === "newShop") {
         formNewShop.classList.remove("hidden");
-    }else{
+    } else {
         formNewShop.classList.add("hidden");
     }
 })
