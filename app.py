@@ -4,7 +4,7 @@ from flask import Flask, send_from_directory, render_template
 from model import restaurant
 
 app = Flask(__name__, template_folder='template')
-#root dir
+# root dir
 app.config['ROOT_DIR'] = os.path.dirname(os.path.abspath(__file__))
 
 
@@ -17,17 +17,20 @@ def index():
     return render_template("index.html", to_send=get_all_restaurants)
 
 # 靜態檔案路徑指定
+
+
 @app.route('/static/<path:filename>')
 def route_static(filename):
     directory = pth.join(app.config['ROOT_DIR'], 'static/')
     return send_from_directory(directory, filename)
 
 # 資源路徑指定
+
+
 @app.route('/views/assets/<path:filename>')
 def route_assets(filename):
     directory = pth.join(app.config['ROOT_DIR'], 'views/assets')
     return send_from_directory(directory, filename)
-
 
 
 # __name__表示當前模組名，如果被匯入檔案的時候__name__表示檔名
@@ -37,4 +40,3 @@ if __name__ == '__main__':
     app.debug = True
     app.run()
     # app.run('129.153.62.32')
-

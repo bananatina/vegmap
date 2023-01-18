@@ -4,10 +4,11 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="{{ url_for('route_static', filename='style.css') }}" />
+    <!-- <link rel="stylesheet" href="{{ url_for('route_static', filename='style.css') }}" /> -->
+    <link rel="stylesheet" href="../static/style.css">
     <title>Taiwan Vegetarian Map</title>
     <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
-    <link href="{{ url_for('route_assets', filename='favicon.ico') }}" rel="shortcut icon" type="image/x-icon" />
+    <!-- <link href="{{ url_for('route_assets', filename='favicon.ico') }}" rel="shortcut icon" type="image/x-icon" /> -->
   </head>
   <body>
     <header>
@@ -281,17 +282,29 @@
         <section id="homeDescription">
           <h2>Explore vegan restaurant thru Taiwan map!</h2>
         </section>
-        <div id="info">
+        <section id="info">
           <h3>Info Box</h3>
-          <li>Amount</li>
-          <li>Average Price</li>
-          <li>Feature</li>
-        </div>
+            <div class="col">
+              <h4>Amount</h4>
+              <p id="dataAmount">0</p>
+            </div>
+            <div class="col">
+              <h4>Average Price</h4>
+              <p id="dataAvg">0</p>
+            </div>
+          <div class="col">
+            <h4>Feature</h4>
+            <p id="dataMenu">N/A</p>
+          </div>
+        </section>
       </div>
     </main>
     <footer>
       <p>Tina & Ting Copyrights information</p>
     </footer>
-    <script src="{{ url_for('route_static', filename='javascript.js') }}"></script>
+    <!-- <script src="{{ url_for('route_static', filename='javascript.js') }}"></script> -->
+    <!-- <script src="{{ url_for('route_static', filename='index.js') }}"></script> -->
+    <script src="../static/index.js"></script>
+    <script src="../static/javascript.js"></script>
   </body>
 </html>
